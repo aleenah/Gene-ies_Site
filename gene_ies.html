@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Motif Finding in Spidroins</title>
+    <link href='gene_ies.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<!-- Header -->
+
+		<header>
+			<span class="logo">
+				<img src="logos/bridgeup_stem_logo_final.png">
+			</span>
+			<nav>
+				<ul>
+  					<li><a href="#Home">Home</a></li>
+  					<li><a href="#Abstract">Abstract</a></li>
+  					<li><a href="#Data">Data</a></li>
+  					<li><a href="#Code">Code</a></li>
+  					<li><a href="#Findings">Results</a></li>
+				</ul>
+			</nav>
+			<span class="logo">
+				<img src="logos/150Y_AMNH_logo_20.png">
+			</span>
+		</header>
+
+
+	<!--Banner-->
+  
+  		<div class="banner" id="Home">
+    		<h1>Motif Finding in Spidroins</h1>
+    		<h2>Anik, Aleenah, Georgia, Ayesha, and Helena</h2>
+  		</div>
+
+<!-- About -->
+
+		<div class="Abstract" id="Abstract">
+			<div>
+				<img src="images/silk_glad_diagram.png">
+			</div>
+			<div style="flex-basis: 250rem">
+				<p class="description">Spider silk has a lot of potential applications in various industries because of its strength and durability. It has been suggested as an alternative to rope or clothing. However, in order to replicate silk to use it commercially, it’s DNA needs to be understood. Spider silk is unique because most of its DNA is composed of repeats, and in those repeats lie sub repeats. Other programs are not built to handle these features. In our project, we have designed an algorithm that takes in protein sequences from spider silk glands,spidroins, and analyzes them to find where repeats in the sequences are. The program finds the most common small, medium and large repeating segments, because these are the most crucial parts of the DNA. Each repeating segment produced by the code is compared with other segments from different spidroins to find similarities. Our results are translated into a phylogenetic tree, which visualizes how closely related these species and spidroin types are to one another. 
+
+
+				</p>
+			</div>
+		</div>
+
+<!-- Data -->
+
+  		<div class="data" id="Data">
+			<div class="photo-container">
+				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/argiope_trifasciata_2.jpg">
+					</div>
+      				<span class="photo-caption">Photo of Argiope Trifasciata</span>
+      			</div>
+    		</div>
+
+			<div class="photo-container">
+				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/argiope_argentata.png">
+					</div>
+      				<span class="photo-caption">Photo of Argiope Argentata</span>
+      			</div>
+    		</div>
+
+    		<div class="photo-container">
+				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/argiope_aurantia_2.png">
+					</div>
+      				<span class="photo-caption">Photo of Argiope Aurantia</span>
+      			</div>
+    		</div>
+    	</div>
+
+<div style="flex-basis: 250rem">
+				<p class="description">To obtain our data, spider silk glands were sent to the sequencing companies PacBio and Oxford Nanopore. They returned to us the RNA isoseq data. From this RNA sequence data, we can determine the amino acid/protein structure. This is the data we used in our scripts.
+					<br>
+					<br>
+					Important Terms
+					<br>
+					<br>
+					DNA: also known as deoxyribonucleic acid, is found in nearly all living organisms. It is located in the cell nucleus and carries genetic information. It is made up of four chemical bases.
+					<br>
+					<br>
+					RNA: a nucleic acid that acts as a messenger of instructions for the synthesis of proteins 
+					<br>
+					<br>
+					Next-Gen Sequencing: refers to different large scale sequencing technologies that sequence  DNA and RNA faster than traditional methods.
+
+				</p>
+			</div>
+		</div>
+	
+		<!-- Code Examples -->
+
+		<div class="mycode" id="Code">
+			<div class="item-container">
+				<table>
+					<tr>
+						<td style="width:33%">
+							<img src="images/kmer_script.png">
+						</td>
+						<td colspan="2">
+							<p class="description">
+								<br><br>Algorithms: 
+								<br>Kmer.py
+								<br>Kmer.py looks at the protein translation of a nucleic sequence and reports each kmer of length six amino acids. This function returns and prints a dictionary of all the kmers and the amount of times they appear. The script completes this task by calling the function with the kmer length (six) and given protein translation as the parameters. The sixmer is then used in the Motif.py file and acts as a boundary to split up the long string of nucleotides into smaller strings. The reason the sixmer is used as a boundary is because it is found the most frequently within the sequence, which indicates that it is a region of a greater length repeat.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="width:33%">
+							<img src="images/motif_1_script.png">
+						</td>
+						<td colspan="2">
+							<p class="description">
+								<br>Motif.py
+								<br>Motif.py opens the full translation file and reads it. It then takes the sequence and splits it where the sixmer is located to create separate strings (all beginning with said sixmer). Lastly, it differentiates these regions of protein translations into small (20 or less amino acids), medium (21-40 amino acids), and large (>40 amino acids) repeats that all start with the sixmer. It then returns them.
+							</p>
+						</td>
+
+					</tr>
+					<tr>
+						<td style="width:33%">
+							<img src="images/fasta_1_script.png">
+						</td>
+						<td colspan="2">
+							<p class="description">
+								<br>Fastascript.py
+								<br>Fastascript.py creates a function that generates a randomized list of nucleotides. It then calls this function 5 different times to make a randomized sequence (length = 30 bp). This sequence contains repeats and sub-repeats as well, due to the adding of the function output repetitively to a file (total length = 300bp) . The function is called twice returning two files of the same length but with different random nucleic sequences. 
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p class="description">
+								<br>Python Functions:
+								<br>Print - displays what is written in the parenthesis when run
+								<br>Def - used to create function 
+								<br>Import - used to upload library or package into file
+								<br>with open - open a file and either read, view or write to it
+								<br>For- creating a for loop to run through data 
+							</p>
+						</td>
+						<td>
+							<p class="description">
+								<br>Python formats:
+								<br>Variables: name = content 
+								<br>Lists: name = [contents]
+								<br>Sets: name = {contents}
+								<br>Dictionaries: name = {key:value, key2:value2}
+								<br>Loops: For i in &#60data set&#62:
+								<br>Code
+								<br>If statements: if var1 ==/</> var2:
+								<br>Code
+							</p>
+						</td>
+						<td>
+							<p class="description">
+								<br>Bash Commands:
+								<br>vi - used open and create files
+								<br>cd - enters you into that directory or folder
+								<br>ls - list the items in a directory or folder
+								<br>Chmod - used to change the permissions for a python file inorder to run it
+								<br>./ - used to run a file 
+								<br>A - used to allow edits in a file
+								<br>:wq - used to save a quit from a file you are editing
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="findings" id="Findings">
+			<div>
+				<p class="quote">"Results and Discussion"</p>
+			</div>
+			<div style="flex-basis: 250rem">
+				<p class="description">Biological Significance: The biological significance of our results show how species vs. MASP (major ampullate spidroin) type affects the phylogenetic relation of different repeats. For the small repeats, the results showed that the two repeats are in sister clades. The branching on them is equal, and even though they are from different species, they are the most closely related to each other. The spidroins are exactly the same. For the medium repeats, there is variation across the phylogenetic tree. Aaur2.2c and Atri2.2c share the same masp type which makes them sister clades, but they are not the same spider type.
+				</p>
+				<p class="description">Data Impact: Our data shows that small repeats of our species of spider are more related to other species types instead of by MaSp type. This is similar to the large repeats we studied, as all except one group of sister clades were more closely related by species instead of MaSp. However, for the medium repeats, there was a larger variation. In some cases, the sister clades favored MaSp type, and in others favored species type.
+				</p>
+			</div>
+			<div style="flex-basis: 300rem">
+				<p class="description">Visualizations
+				</p>
+
+			</div>
+			<div class="photo-container">
+				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/small_repeat.png">
+					</div>
+      				<span class="photo-caption">SMALL REPEAT UNITS <br> This phylogenetic tree shows that these two spider species have the same exact small repeat structures from the same spidroins. Even though these two are different species, they were placed as sister clades because the branching is perfectly equal, and the spidroins are the same.</span>
+      			</div>
+    		</div>
+    		<div class="photo-container">
+				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/medium_repeat.png">
+					</div>
+      				<span class="photo-caption">MEDIUM REPEAT UNITS <br> This phylogenetic tree shows how the major ampullate spidroin is conserved across the tree. Aaur2.2c and Atri2.2c share the same masp type which makes them sister clades, but  they are not the same spider type. Another sister clade has the same spider type, but yet they have different MaSp types; 2.2c2 and 2.2c. Thus, the medium repeat structure is more closely related based upon the MaSp type than its species type.</span>
+      			</div>
+    		</div>
+    				<div class="photo-frame">
+					<div class="photo">
+						<img src="images/large_repeat.png">
+					</div>
+      				<span class="photo-caption">LARGE REPEAT UNITS <br> The repeats in this tree are more closely related to other repeats in the same spidroin than repeats in the same spider. In the labels, the first piece of information, Atri, Aaur or Aarg, denotes the species of spider. The second relevant piece of information signifies the type of MaSp represented, i.e. 2.2a or 2.2c. In this tree the sister clades, the closest pairs, usually share the same MaSp type, but they do not necessarily come from the same spider. In the first pair, both repeats come from the same MaSp type, 2.2a, but different spiders, as one belongs to the Aarg spider and the other to the Aaur spider. This is common across the tree. One exception though is the pair Aarg_translation2.2c2 and Aarg_translation2.2c, where the repeat comes from the same spider but not the same spidroin.</span>
+      			</div>
+    		</div>
+
+		</div>
+
+		<footer>
+			<p>️&copy; Gene-ies 2020</p>
+		</footer>
+
+
+
