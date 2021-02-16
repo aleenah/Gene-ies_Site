@@ -1,2 +1,2 @@
 # Gene-ies_Site
- aleenah/Gene-ies_Sit
+Motif Finding in Spidroins
